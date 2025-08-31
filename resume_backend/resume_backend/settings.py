@@ -36,10 +36,10 @@ MIDDLEWARE = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cc_mini_project',
-        'USER': 'admin',
-        'PASSWORD': 'Vedboy102005',
-        'HOST': 'database-1.cfcwojrl0lki.us-east-1.rds.amazonaws.com',
+        'NAME': 'name',
+        'USER': 'user',
+        'PASSWORD': 'password',
+        'HOST': 'host',
         'PORT': '3306',
     }
 }
