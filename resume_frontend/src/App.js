@@ -27,7 +27,7 @@ function App() {
     let formData = new FormData();
     Object.entries(profile).forEach(([k, v]) => formData.append(k, v));
     if (profileImage) formData.append("profile_image", profileImage);
-    const res = await fetch("http://<your-backend-url>/api/profiles/", {
+    const res = await fetch("http://127.0.0.1:8000/api/profiles/", {
       method: "POST",
       body: formData,
     });
@@ -36,7 +36,7 @@ function App() {
 
     // 2. Create Education
     for (const edu of education) {
-      await fetch("http://<your-backend-url>/api/educations/", {
+      await fetch("http://127.0.0.1:8000/api/educations/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...edu, profile: data.id }),
@@ -44,7 +44,7 @@ function App() {
     }
     // 3. Create Experience
     for (const exp of experience) {
-      await fetch("http://<your-backend-url>/api/experiences/", {
+      await fetch("http://127.0.0.1:8000/api/experiences/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...exp, profile: data.id }),
@@ -52,7 +52,7 @@ function App() {
     }
     // 4. Create Skills
     for (const skill of skills) {
-      await fetch("http://<your-backend-url>/api/skills/", {
+      await fetch("http://127.0.0.1:8000/api/skills/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name: skill, profile: data.id }),
@@ -64,7 +64,7 @@ function App() {
   // Download Resume
   const handleDownload = async () => {
     if (!profileId) return;
-    window.open(`http://<your-backend-url>/api/generate_resume/${profileId}/`, "_blank");
+    window.open(`http://127.0.0.1:8000/api/generate_resume/${profileId}/`, "_blank");
   };
 
   return (
